@@ -7,10 +7,10 @@ export const CallBackHook = () => {
   
 
   const increment=useCallback(
-    () => {
+    (incremento) => {
       
       //setCounter(counter + 1);  // no se puede dejar asi ya que se nemoizan los parametros con un valor fijo
-      setCounter((value)=>value+1);
+      setCounter((value)=>value+incremento);
       
     },
     [],
