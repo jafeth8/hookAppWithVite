@@ -14,6 +14,8 @@ import { Padre } from './07-tarea-memo/Padre'
 import { HooksApp } from './HooksApp'
 import './index.css'
 
+import './08-useReducer/introReducer'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   //<React.StrictMode>
     <Padre/>
