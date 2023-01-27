@@ -1,12 +1,12 @@
-export const todoReducer=(initialState,action) =>{
+export const todoReducer=(state,action) =>{
 
     switch (action.type) {
-        case 'ABC':
+        case 'addTodo':
             
-            throw new Error('ABC no ha sido implementada');
+            return [...state,action.payload]
     
         default:
-            return initialState;
+            return state;
     }
 
 }
