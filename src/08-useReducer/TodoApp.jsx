@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useReducer } from "react"
 import { TodoAdd } from "./TodoAdd";
 
@@ -6,26 +7,28 @@ import { todoReducer } from "./TodoReducer";
 
 
 const initialState=[
-    {
-        id:new Date().getTime(),
-        description:'aprender ingles',
-        done:false
-    },
-    {
-        id:new Date().getTime()*3,
-        description:'aprender css',
-        done:false
-    }
+
 ];
+
+const init = ()=>{
+    // json.parse de un elemento que no existe es null
+    return JSON.parse(localStorage.getItem('todos')) || [];
+};
 
 export const TodoApp = () => {
 
-  const [todos, dispatch] = useReducer(todoReducer,initialState);
+  const [todos, dispatch] = useReducer(todoReducer,initialState,init);
 
   const handleOnNewTodo = (e) =>{
     console.log(e);
     dispatch({type:'addTodo',payload:e});
   }
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  
+  },[todos])
+  
 
   return (
     <>
